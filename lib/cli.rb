@@ -6,7 +6,8 @@ class FestTrack::TrackController
   def run
     puts "Hello!"
     puts "Here is a list of music festivals in the DMV."
-    puts " L O A D I N G . . . . . . . . . . DMV FEST . . . . .  ".bold.colorize(:red)
+    puts " L O A D I N G . . . . . . . . . . DMV FEST . . . . .  "
+    event_list
     input = gets.chomp
     if input != "exit"
       user_input_loop
@@ -17,7 +18,6 @@ class FestTrack::TrackController
     loop do
       puts "Please enter the number of the festival you would like to learn more about."
       puts "Enter 'list' to see the list again or type 'exit' to leave."
-      event_list
       event_details
     end
     if input == "exit"
