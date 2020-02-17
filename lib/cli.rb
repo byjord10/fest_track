@@ -6,7 +6,7 @@ class FestTrack::TrackController
   def run
     puts "Hello!"
     puts "Here is a list of music festivals in the DMV."
-    puts "Enter a number between 1 to 50"
+    puts "Enter a number between 1 to 15"
     puts "Enter 'list' to see the list again or type 'exit' to leave."
     event_list
     input = gets.chomp

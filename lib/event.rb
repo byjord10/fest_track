@@ -21,4 +21,6 @@ class FestTrack::Event
     @@events.detect {|event| event.name == name}
   end
 
+  
+
 end
