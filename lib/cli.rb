@@ -1,9 +1,9 @@
-class FestTrack::CLI
+class FestTrack::TrackController
   BASE_PATH = "http://metromontage.com"
   attr_accessor :event_list_url
 
 
-  def greeting
+  def run
     puts "Hello!"
     puts "Here is a list of music festivals in the DMV."
     puts " L O A D I N G . . . . . . . . . . DMV FEST . . . . .  ".bold.colorize(:red)
