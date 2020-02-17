@@ -1,24 +1,21 @@
 require 'pry'
 require 'nokogiri'
 require 'httparty'
+require 'byebug'
+
+# attr_accessor :name, :location, :url
 
 
-class Scraper
-
-
-  doc = Nokogiri::HTML(open('http://metromontage.com/list-of-music-festivals-in-d-c-maryland-and-northern-virginia/'))
-  binding.pry
-# attr_accessor :event_list_url
-# BASE_PATH = "http://metromontage.com"
-# event_list_url = (BASE_PATH + "/list-of-music-festivals-in-d-c-maryland-and-northern-virginia/")
-#
-# binding.pry
-#   def self.scrape_events(event_list_url)
-#     doc = HTTParty.get(event_list_url)
-#     index = Nokogiri::HTML(doc)
-#     scraped_events = index.css("")
-#     scraped_events.collect do |event|
-#       binding.pry
-#   end
-# end
-end
+  def scraper
+    url = "https://www.musicfestivalwizard.com/all-festivals/?festival_guide=us-festivals&month=&festivalgenre=&festivaltype=&festival_length=&festival_size="
+    unparsed_page = HTTParty.get(url)
+    parsed_page = Nokogiri::HTML(unparsed_page)
+    events = parsed_page.css('div.article')
+    events.each do |event|
+      event = {
+        name: "events.css('a').text",
+        location: "events.css('div.search-meta').text",
+        url: """https://www.musicfestivalwizard.com/all-festivals/?festival_guide=us-festivals&month=&festivalgenre=&festivaltype=&festival_length=&festival_size=" + events.css('a')[0].attributes["href"].value}
+      end
+    end
+    scraper
